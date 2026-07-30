@@ -137,10 +137,3 @@ Managing context windows manually or via proxies introduces trade-offs in setup 
 1. **Practice Prompt Editing:** Begin editing previous messages instead of submitting follow-up corrections on your primary AI platform.
 2. **Audit Tool Connections:** Disable unused MCP tool servers to reduce default system prompt overhead.
 3. **Install Skill/Framework:** Access the Substack link in the video description to download the `token-saver` skill or inspect the Ringer repository.
-
----
-
-## Accessibility Notes
-
-* **Captions/Transcripts:** English auto-generated captions and full transcript data are available on YouTube.
-* **Audio Descriptions:** Standard video presentation without separate visual audio descriptions.

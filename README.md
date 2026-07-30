@@ -1,5 +1,11 @@
 # Token Saver
 
+> **Status: draft / in development — do not trust this yet.**
+>
+> This repository is an early work in progress. Skill text, install paths,
+> docs, and URLs may change without notice. Treat everything here as
+> experimental until a stable release is announced. Not production-ready.
+
 **A portable agent skill that keeps Claude Code, Codex, Grok, and similar
 coding agents from burning your context window on reused history, whole-file
 dumps, and pointless retries.**
@@ -229,6 +235,8 @@ agent**, not a blog post.
 
 ## Disclaimer
 
+- **Draft / in development.** Do not rely on this skill or its docs as
+  finished or trustworthy until a stable release is announced.  
 - Independent open reconstruction of a “Token Saver” style skill.  
 - Not affiliated with or endorsed by Nate B. Jones, Anthropic, OpenAI, or xAI.  
 - Token savings depend on your host, model, tool setup, and habits.  
