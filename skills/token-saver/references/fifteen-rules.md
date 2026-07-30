@@ -4,6 +4,8 @@ Operational checklist behind the Token Saver skill. Inspired by public
 guidance on reused input, context hygiene, and intermediary filtering
 (e.g. Nate B. Jones, "Paste This Into Claude, Never Hit a Token Limit Again").
 
+**Repository:** [https://github.com/pbeens/token-saver-skill](https://github.com/pbeens/token-saver-skill)
+
 These rules are habits and system designs. The skill automates what it can
 **inside** a running agent session (Level 2). Hard intercepts before the
 provider (Level 3) need a local proxy such as Ringer—not this skill alone.

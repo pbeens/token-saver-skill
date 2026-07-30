@@ -136,4 +136,4 @@ Managing context windows manually or via proxies introduces trade-offs in setup 
 
 1. **Practice Prompt Editing:** Begin editing previous messages instead of submitting follow-up corrections on your primary AI platform.
 2. **Audit Tool Connections:** Disable unused MCP tool servers to reduce default system prompt overhead.
-3. **Install Skill/Framework:** Access the Substack link in the video description to download the `token-saver` skill or inspect the Ringer repository.
+3. **Install Skill/Framework:** The talk points to a Substack download for Nate’s original skill and to Ringer. An independent open reconstruction of a Token Saver-style skill (this project) is at [https://github.com/pbeens/token-saver-skill](https://github.com/pbeens/token-saver-skill).

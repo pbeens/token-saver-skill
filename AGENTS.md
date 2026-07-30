@@ -2,9 +2,16 @@
 
 Shared agent profile for the **token-saver** project.
 
+**Repository:** [https://github.com/pbeens/token-saver-skill](https://github.com/pbeens/token-saver-skill)
+
 Install or clone this repository, then point your agent host at this file
 (or copy the skill into your personal skills directory). See `README.md`
 for host-specific install paths.
+
+```bash
+git clone https://github.com/pbeens/token-saver-skill.git
+cd token-saver-skill
+```
 
 ## Identity
 

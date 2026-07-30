@@ -1,5 +1,7 @@
 # Token Saver
 
+**Repository:** [github.com/pbeens/token-saver-skill](https://github.com/pbeens/token-saver-skill)
+
 > **Status: draft / in development — do not trust this yet.**
 >
 > This repository is an early work in progress. Skill text, install paths,
@@ -52,6 +54,16 @@ caching reusable answers.
 
 ## Quick start
 
+### Get the skill
+
+```bash
+git clone https://github.com/pbeens/token-saver-skill.git
+cd token-saver-skill
+```
+
+Or download a ZIP from
+[github.com/pbeens/token-saver-skill](https://github.com/pbeens/token-saver-skill).
+
 ### Option A — Project skill (share with a repo)
 
 Copy the skill into your project:
@@ -91,11 +103,11 @@ Exact skill directories differ slightly by host and version. If a host
 only lists skills under a different path, place `token-saver/SKILL.md`
 there with the same folder shape.
 
-### Option C — Clone and work inside this repo
+### Option C — Work inside this repo
 
 ```bash
-git clone <your-fork-url> token-saver
-cd token-saver
+git clone https://github.com/pbeens/token-saver-skill.git
+cd token-saver-skill
 ```
 
 Open the folder in your agent host. Point the host at `AGENTS.md` if it
@@ -220,6 +232,9 @@ required beyond copying files.
 ---
 
 ## Contributing
+
+Source and issues:
+[github.com/pbeens/token-saver-skill](https://github.com/pbeens/token-saver-skill).
 
 Improvements welcome, especially:
 

@@ -215,3 +215,4 @@ You are doing this skill correctly when:
 
 - Full habit list: `references/fifteen-rules.md`
 - Install and host notes: repository `README.md`
+  ([github.com/pbeens/token-saver-skill](https://github.com/pbeens/token-saver-skill))

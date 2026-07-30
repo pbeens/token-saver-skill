@@ -2,6 +2,8 @@
 
 Short patterns for invoking Token Saver in real sessions.
 
+**Skill repo:** [https://github.com/pbeens/token-saver-skill](https://github.com/pbeens/token-saver-skill)
+
 ## Start of a coding task
 
 ```text
