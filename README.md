@@ -115,6 +115,124 @@ supports a project agents file.
 
 ---
 
+## Best strategy
+
+Token Saver works best when **you** set up a clean job and the skill keeps
+the agent from re-dirtying the desk. Use this pattern:
+
+### 1. One task, one thread
+
+Pick a single goal for the chat. When the goal changes (research →
+implement, bug A → bug B), start a **new thread**. Carry only the accepted
+artifact or a short handoff—not the whole debate.
+
+### 2. Invoke at the start of hard jobs
+
+Turn the skill on **before** the agent loads large sources, not after the
+window is already full:
+
+```text
+/token-saver
+
+Fix the failing auth tests in packages/api. Search first; don't load the
+whole monorepo. Prefer a minimal patch. If context gets heavy, give me a
+handoff block.
+```
+
+For routine one-liners you can skip it. For monorepos, logs, multi-stage
+work, or near rate limits, invoke it first.
+
+### 3. Name the deliverable and length
+
+State the output shape up front. Output is billed when generated **and**
+again when reused as input on later turns.
+
+| You need | Say |
+|----------|-----|
+| Decisions only | “≤150 words; file:line citations; no essay” |
+| Code change | “Minimal patch / diff only” |
+| Structured data | “JSON only matching this schema…” |
+| Log triage | “≤30 relevant lines; no full file” |
+
+### 4. Stage multi-step work
+
+Split research and implementation into two threads:
+
+1. **Thread A — research:** lean summary + paths/citations only.  
+2. Accept the brief (or save it to a file).  
+3. **Thread B — implement:** paste handoff + brief; forbid re-exploring
+   the whole repo.
+
+That single habit usually beats shaving words off prompts.
+
+### 5. Prefer light sources and search
+
+- Convert PDFs/slides to text when layout does not matter.  
+- Point at paths and let the agent **search, then open slices**—do not
+  paste multi-thousand-line dumps “just in case.”  
+- Keep reusable answers in a notes file or project doc so later sessions
+  retrieve instead of re-deriving.
+
+### 6. Edit, don’t argue
+
+If the prompt was wrong, **edit and resend** the original message when the
+UI allows it. A “no, that’s wrong” follow-up keeps the bad turn and all
+prior tokens in the bill.
+
+### 7. Prune tools for lean sessions
+
+MCP/tool definitions cost tokens **before** the model acts. For focused
+work, disconnect unused servers (GitHub, Slack, Sentry, Grafana, etc.)
+and leave only what the job needs. Prefer built-in shell/file tools when
+they are enough.
+
+### 8. Handoff when the thread gets heavy
+
+When the chat fills with tool dumps, rejected drafts, or task drift, ask:
+
+```text
+Give me a token-saver handoff block so I can start a clean thread.
+```
+
+Expect something like:
+
+```markdown
+## Handoff
+- Goal:
+- Accepted decisions:
+- Current artifact paths:
+- Open questions:
+- Do not reopen:
+```
+
+Paste that into a **new** chat and continue.
+
+### 9. Match model size to the work
+
+Use a small/fast model for formatting and simple transforms; reserve
+stronger models for architecture, security, and hard debugging. Ask the
+skill once if you are unsure—do not thrash models mid-task without a
+reason.
+
+### 10. What “saved” looks like (and what it doesn’t)
+
+The skill does **not** report a live “tokens saved” counter. Judge success
+by behavior and host usage:
+
+- Search-then-slice instead of whole-file reads  
+- Short answers that match what you asked for  
+- Stage boundaries with clean artifacts  
+- Few pointless retries  
+- Fresh threads seeded with handoffs  
+
+To compare, run the **same task** with and without lean habits and check
+your host’s usage meter or API token counts. Real savings depend on host,
+model, tools, and habits—not a fixed multiplier.
+
+More copy-paste patterns: [`docs/usage-examples.md`](docs/usage-examples.md).
+
+---
+
 ## How to use it
 
 ### Slash / menu
@@ -156,27 +274,6 @@ handoff block.
 | Writing a 2,000-word essay you did not ask for | Matches length (bullets, JSON, patch) |
 | Re-running the same failing tool call | Changes one variable; stops after two retries |
 | Leaving every MCP server connected “just in case” | Uses only tools needed; recommends pruning |
-
-### Handoff when the thread gets heavy
-
-Ask for:
-
-```text
-Give me a token-saver handoff block so I can start a clean thread.
-```
-
-You should get something like:
-
-```markdown
-## Handoff
-- Goal:
-- Accepted decisions:
-- Current artifact paths:
-- Open questions:
-- Do not reopen:
-```
-
-Paste that into a **new** chat and continue.
 
 ---
 
