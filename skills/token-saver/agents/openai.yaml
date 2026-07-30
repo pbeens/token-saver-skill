@@ -1,0 +1,4 @@
+interface:
+  display_name: "Token Saver"
+  short_description: "Lean context, fewer tokens, cleaner agent sessions"
+  default_prompt: "Use $token-saver for this job. Keep context lean: search before full-file reads, prefer snippets and artifacts over history, match requested output length, avoid pointless retries, and suggest the cheapest model that still works."
